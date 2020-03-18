@@ -13,12 +13,15 @@ const CharacterCard = props => {
     return (
         <div>
             <h2>Rick and Morty API</h2>
-            <div>
+            <div className='box'>
                 {props.char.map(el => (
-                    <p key={el.id}>{el.name}</p>
+                    <div key={el.id} className='wrapper'>
+                        <p>{el.name}</p>
+                        <img className='char-image' src={el.image} alt='characters'></img>
+                    </div>
                 ))}
             </div>
-            {props.error && <p>{props.error}</p>}
+            {props.error && <p className='error'>{props.error}</p>}
             <button onClick={fetchCharacters}>Fetch Characters</button>
         </div>
     )
